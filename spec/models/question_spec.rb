@@ -9,6 +9,7 @@ RSpec.describe Question, type: :model do
     it { should_not allow_value(500).for(:level) }
     it { should allow_value(14).for(:level) }
 
+
     subject { Question.new(text: 'test', level: 3, answer1: '1', answer2: '2',
                               answer3: '3', answer4: '4') }
 
