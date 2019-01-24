@@ -17,6 +17,7 @@ gem 'therubyracer'
 gem 'rspec-rails', '~> 3.4'
 gem 'factory_bot_rails'
 gem 'shoulda-matchers'
+gem 'sprockets', '>= 3.7.2'
 
 group :development, :test do
   gem 'sqlite3'
