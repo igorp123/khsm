@@ -18,6 +18,7 @@ gem 'rspec-rails', '~> 3.4'
 gem 'factory_bot_rails'
 gem 'shoulda-matchers'
 gem 'sprockets', '>= 3.7.2'
+gem 'nokogiri', '>= 1.8.5'
 
 group :development, :test do
   gem 'sqlite3'
