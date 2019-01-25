@@ -57,6 +57,19 @@ RSpec.describe GameQuestion, type: :model do
       # проверяем новые значение хэша
       expect(gq.help_hash).to eq({some_key1: 'blabla1', 'some_key2' => 'blabla2'})
     end
+  end
+
+  context 'user helpers' do
+    it 'correct audience_help' do
+      expect(game_question.help_hash).not_to include(:audience_help)
+
+      game_question.add_audience_help
+
+      expect(game_question.help_hash).to include(:audience_help)
+
+      ah = game_question.help_hash[:audience_help]
+      expect(ah.keys).to contain_exactly('a', 'b', 'c', 'd')
+    end
 
 #63.2
     it 'correct fifty_fifty' do
@@ -84,21 +97,5 @@ RSpec.describe GameQuestion, type: :model do
       ff = game_question.help_hash[:friend_call]
       expect(ff).to include('считает, что это вариант')
     end
-
-
-  end
-
-  context 'user helpers' do
-    it 'correct audience_help' do
-      expect(game_question.help_hash).not_to include(:audience_help)
-
-      game_question.add_audience_help
-
-      expect(game_question.help_hash).to include(:audience_help)
-
-      ah = game_question.help_hash[:audience_help]
-      expect(ah.keys).to contain_exactly('a', 'b', 'c', 'd')
-    end
-
   end
 end
