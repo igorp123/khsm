@@ -141,7 +141,7 @@ RSpec.describe Game, type: :model do
       it 'any correct answer' do
         l = game_w_questions.current_level
 
-        game_w_questions.answer_current_question!(current_question.correct_answer_key)
+        game_w_questions.answer_current_question!('d')
 
         expect(game_w_questions.status).to eq(:in_progress)
         expect(game_w_questions.current_level).to eq(l + 1)
@@ -158,7 +158,7 @@ RSpec.describe Game, type: :model do
 
       it 'last correct answer'do
         15.times do
-          game_w_questions.answer_current_question!(current_question.correct_answer_key)
+          game_w_questions.answer_current_question!('d')
         end
 
         expect(game_w_questions.status).to eq(:won)
@@ -171,7 +171,7 @@ RSpec.describe Game, type: :model do
 
         game_w_questions.finished_at = Time.now
 
-        game_w_questions.answer_current_question!(current_question.correct_answer_key)
+        game_w_questions.answer_current_question!('d')
 
         expect(game_w_questions.status).to eq(:timeout)
         expect(game_w_questions.finished_at).to be_truthy
@@ -179,4 +179,3 @@ RSpec.describe Game, type: :model do
       end
     end
 end
-
