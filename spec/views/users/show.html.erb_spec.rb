@@ -34,7 +34,6 @@ RSpec.describe 'users/show', type: :view do
     render
 
     expect(rendered).to match 'User game goes here'
-
   end
 end
 
