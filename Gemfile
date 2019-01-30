@@ -19,6 +19,7 @@ gem 'factory_bot_rails'
 gem 'shoulda-matchers'
 gem 'sprockets', '>= 3.7.2'
 gem 'nokogiri', '>= 1.8.5'
+gem 'byebug'
 
 group :development, :test do
   gem 'sqlite3'
